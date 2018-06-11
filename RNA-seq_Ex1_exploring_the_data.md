@@ -191,9 +191,10 @@ kallisto index -i /kall_index/kall_selected_refseq1 \
 ```
 
 #### Questions:
+
 * How many new files do you have? Which ones correspond to which aligners?
 
-##Useful links
+## Useful links
 
 * **FastQ format**: https://en.wikipedia.org/wiki/FASTQ_format
 * **Trimmomatic manual**:
