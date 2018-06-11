@@ -57,7 +57,7 @@ grep -c ">" References/selected_refseq1.0.fasta
 To inspect the ```fastq.gz``` files you can use less. However, if you want to do any other analysis with a text processing tool, you need to uncompress it and pass it to your command. For example, to count the number of lines with ```wc -l```, you do the following:
 
 ```sh
-gunzip -c Reads/104B/Sample_104B.r1.fastq.gz | wc -l
+gunzip -c reads/104B/Sample_104B.r1.fastq.gz | wc -l
 ``` 
 
 #### Questions:
@@ -95,7 +95,7 @@ To review the quality of the fastq, fastqc can be used to plot and summarise the
 
 ```sh
 fastqc/0.11.5
-fastqc -o fastqc/ -f fastq ./reads/Sample_104B.r1.fastq.gz
+fastqc -o fastqc/ -f fastq reads/Sample_104B.r1.fastq.gz
 ```
 After fastqc is done, open the report in ```fastqc/Sample_104B.r1_fastqc.html```
 
@@ -119,8 +119,8 @@ We will use Trimmomatic to trim the PE reads for quality. For example:
 module load trimmomatic/0.38
 
 trimmomatic PE -threads 2 \
-/reads/Sample_104B/Sample_104B.r1.fastq.gz \
-/reads/Sample_104B/Sample_104B.r2.fastq.gz \
+reads/Sample_104B/Sample_104B.r1.fastq.gz \
+reads/Sample_104B/Sample_104B.r2.fastq.gz \
 -baseout /trim/104B.fastq \
 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:2 MINLEN:60 AVGQUAL:20
 ```
@@ -167,8 +167,8 @@ First we need to convert our gff file to a gtf, using a utility found in the Cuf
 ```sh
 module load cufflinks/2.2.1
 
-gffread References/original_coordinates.gff -T -o \
-gtf_splice/original_coordinates.gtf
+gffread References/transformed_coordinates.gff -T -o \
+gtf_splice/transformed_coordinates.gtf
 
 ```
 Then we can run the python script to extract the splice sites:
@@ -177,8 +177,8 @@ Then we can run the python script to extract the splice sites:
 module load python/3.6.2
 
 extract_splice_sites.py \
-gtf_splice/original_coordinates.gtf \
-> gtf_splice/original_coordinates_splices.txt
+gtf_splice/transformed_coordinates.gtf \
+> gtf_splice/transformed_coordinates.gff.txt
 ```
 
 ### kallisto index
