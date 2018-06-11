@@ -1,7 +1,8 @@
 # module4_RNAseq
 The fourth module of the 2018 Bioinformatics Community of Practice at BecA-ILRI Hub
 
-![](figures/Overview.svg?raw=true)
+
+<img src="igures/Overview.svg?raw=true" width="100%" >
 
 ## Overview of RNA-seq
 We will present an overview of how the RNA-Seq samples are produced and the drawbacks of aligning the reads naively to a genomic reference
