@@ -150,8 +150,8 @@ Reference files tend to be big, so sequence aligners require an index to be able
 module load hisat2/2.0.5
 
 hisat2-build -p 2 \
-/References/transformed_coordinates.fasta \
-/hisat_index/transformed_coordinates_fasta_indx
+References/transformed_coordinates.fasta \
+hisat_index/transformed_coordinates_fasta_indx
 ```
 You can provide HISAT2 with a list of known splice sites, which it then uses when aligning reads with small anchors. We will use this file tomorrow.
 
@@ -167,7 +167,7 @@ First we need to convert our gff file to a gtf, using a utility found in the Cuf
 ```sh
 module load cufflinks/2.2.1
 
-gffread /References/original_coordinates.gff -T -o \
+gffread References/original_coordinates.gff -T -o \
 gtf_splice/original_coordinates.gtf
 
 ```
@@ -177,8 +177,8 @@ Then we can run the python script to extract the splice sites:
 module load python/3.6.2
 
 extract_splice_sites.py \
-/gtf_splice/original_coordinates.gtf \
-> /gtf_splice/original_coordinates_splices.txt
+gtf_splice/original_coordinates.gtf \
+> gtf_splice/original_coordinates_splices.txt
 ```
 
 ### kallisto index
@@ -186,8 +186,8 @@ extract_splice_sites.py \
 ```sh
 module load kallisto/0.43.0
 
-kallisto index -i /kall_index/kall_selected_refseq1 \
-/References/selected_refseq1.0.fasta
+kallisto index -i kall_index/kall_selected_refseq1 \
+References/selected_refseq1.0.fasta
 ```
 
 #### Questions:
