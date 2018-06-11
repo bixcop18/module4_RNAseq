@@ -10,7 +10,7 @@
 
 ## Organising a project
 
-NGS analysis can lead to have many temporal files. For that reason, it is recommended to have subfolders with each step on the analysis. In that way, it is easy to remove and repeat failed attempts and it is easier to find the results and the steps you followed in the future. 
+NGS analysis can lead to have many temporary files. For that reason, it is recommended to have subfolders with each step on the analysis. In that way, it is easy to remove and repeat failed attempts and it is easier to find the results and the steps you followed in the future. 
 
 ### Inputs
 
@@ -122,7 +122,7 @@ trimmomatic PE -threads 2 \
 /reads/Sample_104B/Sample_104B.r1.fastq.gz \
 /reads/Sample_104B/Sample_104B.r2.fastq.gz \
 -baseout /trim/104B.fastq \
-LEADING:3 TRAILING:3 SLIDINGWINDOW:4:2 MINLEN:25 AVGQUAL:20
+LEADING:3 TRAILING:3 SLIDINGWINDOW:4:2 MINLEN:60 AVGQUAL:20
 ```
 Run Trimmomatic on all the samples as PE reads.
 
