@@ -1,13 +1,13 @@
-#RNA-seq: exercise 2
-##Mapping and aligning the reads:
+# RNA-seq: exercise 2
+## Mapping and aligning the reads:
 
-##Objectives:
+## Objectives:
 
 * Learn how to align with HISAT2 and kallisto
 * Convert the output from the aligners to the BAM format.
 * Explore the alignments
 
-##Loading the programs to use
+## Loading the programs to use
 
 To load the tools we will use in the tutorial run:
 
