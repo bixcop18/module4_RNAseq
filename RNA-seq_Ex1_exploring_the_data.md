@@ -1,14 +1,15 @@
 # RNA-seq: exercise 1
-##Exploring the data:
+## Exploring the data:
 
-##Objectives:
+## Objectives:
 
 * Explore FASTA and FASTQ files
 * Run FASTQC on all 4 samples
 * Trim reads from all 4 samples
 * Prepare reference indices to run the alignments
 
-##Organising a project
+## Organising a project
+
 NGS analysis can lead to have many temporal files. For that reason, it is recommended to have subfolders with each step on the analysis. In that way, it is easy to remove and repeat failed attempts and it is easier to find the results and the steps you followed in the future. 
 
 ### Inputs
@@ -55,11 +56,11 @@ grep -c ">" References/transformed_coordinates.fasta
 
 To inspect the ```fastq.gz``` files you can use less. However, if you want to do any other analysis with a text processing tool, you need to uncompress it and pass it to your command. For example, to count the number of lines with ```wc -l```, you do the following:
 
-```
+```sh
 gunzip -c Reads/104B/Sample_104B.r1.fastq.gz | wc -l
 ``` 
 
-####Questions:
+#### Questions:
 * Which are the contigs in the reference file?
 * How many reads does each fastq have? (Hint: Each read is four lines in Illumina ```fastq``` files)
 
@@ -88,7 +89,7 @@ kallisto/0.43.0
 * You can write scripts with all your commands to run the same analysis again.
 
 
-##Verifying the quality of the reads
+## Verifying the quality of the reads
 
 To review the quality of the fastq, fastqc can be used to plot and summarise the 
 
@@ -108,10 +109,10 @@ Repeat this for each of the remaining samples (r1 and r2 for each):
 /reads/Sample_120A.r1.fastq.gz
 /reads/Sample_120A.r2.fastq.gz
 ```
-####Question
+#### Question
 * Is the quality of the reads good?
 
-##Trimming the reads
+## Trimming the reads
 We will use Trimmomatic to trim the PE reads for quality. For example:
 
 ```sh
@@ -125,7 +126,7 @@ LEADING:3 TRAILING:3 SLIDINGWINDOW:4:2 MINLEN:25 AVGQUAL:20
 ```
 Run Trimmomatic on all the samples as PE reads.
 
-These are fairly relaxed trimming parameters. Look up the options in the documenation to find out what they mean:
+These are fairly relaxed trimming parameters. Look up the options in the documenation to find out what they mean: 
 http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/TrimmomaticManual_V0.32.pdf
 
 For these samples, the majority of reads will survive trimming as PE. It is these that we will use for mapping.
@@ -140,10 +141,10 @@ samplename_1U.fastq and samplename_2U.fastq
 ```
 You can examine the results of the trimming, and find out how many reads passed the quality filters by reading the .err file.
 
-##Indexing the references
+## Indexing the references
 Reference files tend to be big, so sequence aligners require an index to be able to run. We will make indices for both our HISAT2 mapping and our kallisto mapping.
 
-###HISAT2 index
+### HISAT2 index
 ```sh
 
 module load hisat2/2.0.5
@@ -179,7 +180,8 @@ extract_splice_sites.py \
 /gtf_splice/original_coordinates.gtf \
 > /gtf_splice/original_coordinates_splices.txt
 ```
-###kallisto index
+
+### kallisto index
 
 ```sh
 module load kallisto/0.43.0
@@ -187,10 +189,12 @@ module load kallisto/0.43.0
 kallisto index -i /kall_index/kall_selected_refseq1 \
 /References/selected_refseq1.0.fasta
 ```
-####Questions:
+
+#### Questions:
 * How many new files do you have? Which ones correspond to which aligners?
 
 ##Useful links
+
 * **FastQ format**: https://en.wikipedia.org/wiki/FASTQ_format
 * **Trimmomatic manual**:
     http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/TrimmomaticManual_V0.32.pdf
