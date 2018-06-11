@@ -51,7 +51,7 @@ less References/transformed_coordinates.fasta
 Similarly, if you want to know how many chromosomes the file has, you can again use ```grep```.
 
 ```sh
-grep -c ">" References/transformed_coordinates.fasta
+grep -c ">" References/selected_refseq1.0.fasta
 ```
 
 To inspect the ```fastq.gz``` files you can use less. However, if you want to do any other analysis with a text processing tool, you need to uncompress it and pass it to your command. For example, to count the number of lines with ```wc -l```, you do the following:
