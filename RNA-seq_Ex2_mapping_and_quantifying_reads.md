@@ -47,7 +47,7 @@ module load samtools/1.8
 
 hisat2 -x hisat_index/transformed_coordinates_fasta_indx \
 -p 2 --dta \
---known-splicesite-infile gtf_splice/original_coordinates_splices.txt \
+--known-splicesite-infile gtf_splice/transformed_coordinates_splices.txt \
 -1 trim/104B_1P.fastq \
 -2 trim/104B_2P.fastq \
 | samtools view -bS - > alignments/HISAT2/104B_P.bam
