@@ -112,7 +112,7 @@ We use this ```stringtie_output/merge_stringtie_gtf``` to re-estimate transcript
 ```sh
 module load stringtie/1.3.4d
 
-stringtie -e -B -p 8 -G stringtie_output/merge_stringtie_gtf \
+stringtie -e -B -p 2 -G stringtie_output/merge_stringtie_gtf \
 -o ./ballgown_str_mrg/104B/104B_vs_mrg_gtf.gtf \
 alignments/HISAT2/sorted_104B_P.bam
 ```
