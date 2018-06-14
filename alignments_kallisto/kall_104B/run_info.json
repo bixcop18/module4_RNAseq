@@ -1,0 +1,9 @@
+{
+	"n_targets": 2812,
+	"n_bootstraps": 10,
+	"n_processed": 2098558,
+	"kallisto_version": "0.43.1",
+	"index_version": 10,
+	"start_time": "Thu Jun  7 16:41:44 2018",
+	"call": "kallisto quant --pseudobam -i /tgac/workarea/group-pg/Rachel/kenya_data/kall_selected_refseq1 -t 1 -b 10 -o /tgac/workarea/group-pg/Rachel/kenya_data/kall_104B /tgac/workarea/group-pg/Rachel/kenya_data/post_trim/P/104B_1P.fastq /tgac/workarea/group-pg/Rachel/kenya_data/post_trim/P/104B_2P.fastq"
+}
