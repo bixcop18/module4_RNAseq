@@ -211,7 +211,7 @@ points(fpkm[1948,] ~ jitter(as.numeric(pheno_data$tissue)), col=as.numeric(pheno
 
 We can also plot the average expression levels for all transcripts of a gene within different groups using the plotMeans function. We need to specify which gene to plot, which Ballgown object to use and which variable to group by.
 
-As an example, we will plot the transcripts associated with the example we looked at above ```mrg.1458``` by using the following command. The plot shows the average expression, between samples, coloured according to expression level.
+As an example, we will plot the transcripts associated with the example we looked at above ```mrg.1188``` by using the following command. The plot shows the average expression, between samples, coloured according to expression level.
 
 ```sh
 plotMeans('mrg.1188', bg_filt, groupvar='tissue', legend=T)
