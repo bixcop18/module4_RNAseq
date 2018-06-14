@@ -81,7 +81,7 @@ samtools view CS_DF5_st_rmdup.bam | head
 ```sh
 sample=DF19				# Other sample names: 119B, 120A
 samplePrefix=CS_DF19	# Other sample prefixes: Az_119B, Az_120A
-samtools sort -n -o ${samplePrefix}_st_namesort.bam  /var/scratch/baileyp/Practical_4_small_wheat_dataset/sorted_bam_from_HISAT2_mapping/sorted_${samplePrefix}_P.bam
+samtools sort -n -o ${samplePrefix}_st_namesort.bam  /var/scratch/baileyp/Practical_4_small_wheat_dataset/sorted_bam_from_HISAT2_mapping/sorted_${sample}_P.bam
 ```
 
 * After running the above command, reset the variables to process the other two samples with the same command. Use the up arrow key to retrieve the command.
@@ -177,7 +177,7 @@ samtools  index  merged_readgroups.bam
 * merged_readgroups.bam prepared above in step 2.
 
 * Genome reference:
-	/var/scratch/baileyp/Practical_1_RicardosExample/References/transformed_coordinates.fasta
+	/var/scratch/baileyp/Practical_4_RicardosExample/References/transformed_coordinates.fasta
 	
 <br>
 
@@ -192,7 +192,7 @@ module load freebayes/1.0.2
 
 ```sh
 freebayes \
---fasta-reference /var/scratch/baileyp/Practical_1_RicardosExample/References/transformed_coordinates.fasta \
+--fasta-reference /var/scratch/baileyp/Practical_4_RicardosExample/References/transformed_coordinates.fasta \
 merged_readgroups.bam \
 > all_snps.vcf &
 ```
@@ -205,7 +205,7 @@ merged_readgroups.bam \
 ```sh
 freebayes \
 -r chr1A \
---fasta-reference /var/scratch/baileyp/Practical_1_RicardosExample/References/transformed_coordinates.fasta \
+--fasta-reference /var/scratch/baileyp/Practical_4_RicardosExample/References/transformed_coordinates.fasta \
 merged_readgroups.bam \
 > chr1A_snps.vcf &
 ```
@@ -261,7 +261,7 @@ module load vcftools/0.1.15
 	* remove indels (--remove-indels)
 	* allow no missing genotypes (max-missing 1)
 
-* Add these flags to the command below, one after the other and keep a record of the number of SNPs you find after adding each additional filter. Also alter the output filenames accordingly.
+* Add these flags to the command below, one after the other and keep a record of the number of SNPs you find after adding each additional filter.
 
 
 ```sh
@@ -305,10 +305,36 @@ vcftools --vcf merged_readgroups.vcf \
 	* [Samtools](http://samtools.sourceforge.net/mpileup.shtml)
 
 * Other VCF filtering tools:
-	* bcftools
+	* bcftools (see [Samtools manual](http://www.htslib.org/doc/#manual-pages) pages)
 	* [SnpSift](http://snpeff.sourceforge.net/SnpSift.html)
 	* [VEP](https://www.ensembl.org/info/docs/tools/vep/script/vep_filter.html)
 
+<br>
+
+**Step 5 - Annotate snpEFF Annotation**
+
+[The snpEff Manual](http://snpeff.sourceforge.net/SnpEff_manual.html)
+
+There are programs to annotate SNPs according to whether the SNP falls within a gene to produce a deleterious mutation e.g. stop codon or potentially a non-synomymous substitution. We will use the snpEff tool:
+
+```sh
+module load snpeff/4.1g 
+snpEff \
+-c /var/scratch/baileyp/Practical_4_small_wheat_dataset/snpEff/snpEff.config \
+refseq_mini \
+all_minQ20_minDP6_noindels_maxm1.recode.vcf \
+> all_minQ20_minDP6_noindels_maxm1_snpeff.vcf
+
+```
+
+The output comes with a summary html file containing information on the number of genes with SNP effects or consequences.
+
+A complete list of consequences can be found at Ensembl [here] (https://www.ensembl.org/info/genome/variation/predicted_data.html#consequences).
+
+How would you quickly count the number of stop codons and non-synomymous substitutions effects in the new snpeff.vcf file. How many of each are there? It is better to use a filtering tool however e.g. snpSift (see via the snpEff manual above)
+
+Another SNP effect annotation tool to look at is the
+the Ensembl [Variant Effect Predictor (VEP)](https://www.ensembl.org/info/docs/tools/vep/index.html) which also has its own [filtering tool](https://www.ensembl.org/info/docs/tools/vep/script/vep_filter.html).
 
 <br>
 <br>
