@@ -19,12 +19,13 @@
 * Call SNPs with Freebayes and filter the SNPs
 
 * Annotate SNP calls with snpEff to indicate whether the SNP changes are functionally significant e.g. produce a stop codon
-<br>
+
+<!-- Prepare a working directory for this project -->
 <br>
 
 **Inputs**
 
-* Location of fastq reads: /var/scratch/baileyp/Practical\_2\_Arabidopsis\_accns/fastq_files
+* Location of fastq reads: /var/scratch/baileyp/Practical\_5\_Arabidopsis\_accns/fastq_files
 
 * fastq read file for Columbia (Col_0): R38\_L1\_Col\_0\_sdlg\_R1\_nss\_barcode\_GTA.fastq
 (78 base pair reads)
@@ -241,7 +242,7 @@ chr4_ONLY_minQ20_minDP6_noindels_maxm1.recode.vcf \
 * A complete list of consequences can be found at Ensembl [here] (https://www.ensembl.org/info/genome/variation/predicted_data.html#consequences).
 
 * How would you quickly count the number of stop codons and non-synomymous substitutions effects in the new snpeff.vcf file. How many of each are there?
-It is better to use a filter tool howeever e.g. snpSift (see via the snpEff manual above)
+It is better to use a filtering tool however e.g. snpSift (see via the snpEff manual above)
 
 * Another SNP effect annotation tool to look at is the  
 the Ensembl [Variant Effect Predictor (VEP)](https://www.ensembl.org/info/docs/tools/vep/index.html) which also has its own [filtering tool](https://www.ensembl.org/info/docs/tools/vep/script/vep_filter.html).
