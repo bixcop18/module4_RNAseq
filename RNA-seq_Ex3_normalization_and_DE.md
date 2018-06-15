@@ -107,7 +107,7 @@ results_transcripts <- stattest(bg_filt, feature="transcript", covariate="condit
 Then we can identify genes that show statistically significant differences between groups. 
 
 ```sh
-results_genes <- stattest(bg_filt, feature="gene", covariate="condition", getFC=T, meas = "FPKM")
+results_genes <- stattest(bg_filt, feature="gene", covariate="tissue", getFC=T, meas = "FPKM")
 ```
 The parameters we have specified here, in both cases are:
 
