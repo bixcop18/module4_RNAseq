@@ -101,7 +101,7 @@ Use the ```head()``` function to look at the contents of this table.
 Next, using the function ```stattest``` on the filtered results, we can identify transcripts that show statistically significant differences between root and spike.
 
 ```sh
-results_transcripts <- stattest(bg_filt, feature="transcript", covariate="condition", getFC=T, meas = "FPKM")
+results_transcripts <- stattest(bg_filt, feature="transcript", covariate="tissue", getFC=T, meas = "FPKM")
 ```
 
 Then we can identify genes that show statistically significant differences between groups. 
