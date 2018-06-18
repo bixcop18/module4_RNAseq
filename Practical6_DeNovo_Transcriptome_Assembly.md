@@ -98,9 +98,69 @@ using the ```full_cleanup``` to remove at the end all the temporary files for tr
 * What are the steps that trinity is doing? What do you think each step does? 
 * Can you try the same argumetns in trimmomatic as used on the previous excercises? 
 
+## Check the contig sizes
 
+Get the size of all the transcripts and get a distribution of the sizes. Compare that with the reference that we had before (```selected_refseq1.0.fasta```).  
 
 
 ## Comparing the annotations. 
 
-The samples are coming from the same regions of the reference in 
+To compare this assemblies, we are going to map them using gmap:
+```
+module load gmap/2015-12-31
+```
+
+
+Copy the ```transformed_coordinates.fasta``` to your folder and create an index for gmap
+
+```
+gmap_build -d transformed_coordinates -D gmap  transformed_coordinates.fasta
+```
+
+
+Align your assembly to the Trinity assembly.  
+
+```
+gmap --min-intronlength=20 --format=gff3_gene --npaths=1 --ordered --min-identity=0.95 -d transformed_coordinates -D ../References/gmap trinity-mini_test.Trinity.fasta > trinity-mini_test.Trinity.gff
+GMAP version 2018-05-30 called with args: gmap.avx2 --min-intronlength=20 --format=gff3_gene --npaths=1 --ordered --min-identity=0.95 -d transformed_coordinates -D ../References/gmap trinity-mini_test.Trinity.fasta
+```
+
+We need to sort the GFF file in coordinates, a tool that can be used for this is ```genometools``` http://genometools.org/tools/gt_gff3.html . 
+
+```
+
+gt gff3 -tidy yes -retainids yes -sort yes trinity-mini_test.Trinity.gff > trinity-mini_test.sorted.Trinity.gff
+```
+
+We can do this with all the transcriptomes that where generated. 
+
+You can visualize all the transcriptome assemblies at the same time with ```igv```. Look for the differences between the original references (```transformed_coordinates.gff```) and your assembly. Also compare them with the assemblies of other groups. 
+
+
+Genome tools can be used to produce a plot of a particular region, for example: ```chr1B:320,232-345,985```
+
+
+```
+gt sketch -format pdf -seqid chr1B -start 320232 -end 345985 output1.pdf trinity-mini_test.sorted.Trinity.gff
+```
+
+That particular region looks like this: 
+
+#### Original 
+
+![Overview](./figures/original.svg)
+
+#### 4 samples no trimming  
+
+![Overview](./figures/trinity__no_trimmed.svg)
+
+#### 4 samples, trimmed 
+
+![Overview](./figures/trinity_trimmed.svg)
+
+
+
+
+
+
+
