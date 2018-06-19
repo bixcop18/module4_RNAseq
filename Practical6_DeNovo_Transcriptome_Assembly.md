@@ -102,6 +102,8 @@ using the ```full_cleanup``` to remove at the end all the temporary files for tr
 
 Get the size of all the transcripts and get a distribution of the sizes. Compare that with the reference that we had before (```selected_refseq1.0.fasta```).  
 
+***Get the N50***. You need to sort the transcript lengths and the cummulative values. 
+
 
 ## Comparing the annotations. 
 
@@ -109,6 +111,8 @@ To compare this assemblies, we are going to map them using gmap:
 ```
 module load gmap/2015-12-31
 ```
+
+If you have problmes running the version in the cluster, try the version in: ```/home/rgonzalez/gmap/bin```
 
 
 Copy the ```transformed_coordinates.fasta``` to your folder and create an index for gmap
@@ -125,7 +129,9 @@ gmap --min-intronlength=20 --format=gff3_gene --npaths=1 --ordered --min-identit
 GMAP version 2018-05-30 called with args: gmap.avx2 --min-intronlength=20 --format=gff3_gene --npaths=1 --ordered --min-identity=0.95 -d transformed_coordinates -D ../References/gmap trinity-mini_test.Trinity.fasta
 ```
 
-We need to sort the GFF file in coordinates, a tool that can be used for this is ```genometools``` http://genometools.org/tools/gt_gff3.html . 
+We need to sort the GFF file in coordinates, a tool that can be used for this is ```genometools``` http://genometools.org/tools/gt_gff3.html ```/home/rgonzalez/gt/bin/``` 
+
+
 
 ```
 
