@@ -437,6 +437,7 @@ write.csv(res12Wald_filtered_annotation,file=&quot;./time12_final_filtered_gentr
 ##     intersect, setdiff, setequal, union</code></pre>
 <p>filters out those without Arabidopsis gene for Mapman analysis</p>
 <pre class="r"><code>res12Wald_filtered_annotation_ath&lt;-res12Wald_filtered_annotation[!res12Wald_filtered_annotation$arth_gene==&quot;&quot;,]
+res12Wald_filtered_annotation_ath$arth_gene&lt;-gsub(&quot;\\.*&quot;,&quot;&quot;,res12Wald_filtered_annotation_ath$arth_gene)
 res12Wald_filtered_annotation_ath_final&lt;-res12Wald_filtered_annotation_ath %&gt;% group_by(res12Wald_filtered_annotation_ath$arth_gene) %&gt;% mutate(Sum = cumsum(log2fc))
 write.table(summarise(res12Wald_filtered_annotation_ath_final,log2fc=mean(log2fc),count=n()),&quot;./res12Wald_filtered_annotation_ath_final.txt&quot;, sep = &quot;\t&quot;, row.names = F)</code></pre>
 </div>
