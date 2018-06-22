@@ -1,0 +1,9 @@
+{
+	"n_targets": 3153,
+	"n_bootstraps": 0,
+	"n_processed": 886191,
+	"kallisto_version": "0.43.0",
+	"index_version": 10,
+	"start_time": "Thu Jun 21 14:07:36 2018",
+	"call": "kallisto quant -i ../Trinity-mini-test-CDHit90.fasta.k31 -o kallisto_out/spike_Z32_rep1 /Users/ramirezr/Dropbox/JIC/Workshops/2018-05 Beca/reads/spike_Z32_rep1/spike_Z32_rep1.r1.fastq.gz /Users/ramirezr/Dropbox/JIC/Workshops/2018-05 Beca/reads/spike_Z32_rep1/spike_Z32_rep1.r2.fastq.gz"
+}

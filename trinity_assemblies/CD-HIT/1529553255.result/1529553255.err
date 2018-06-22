@@ -1,0 +1,10 @@
+/opt/sge6/default/spool/exec_spool_local/node002/job_scripts/25259: line 14: faa_stat.pl: command not found
+/opt/sge6/default/spool/exec_spool_local/node002/job_scripts/25259: line 17: faa_stat.pl: command not found
+/opt/sge6/default/spool/exec_spool_local/node002/job_scripts/25259: line 20: gnuplot1.pl: command not found
+/opt/sge6/default/spool/exec_spool_local/node002/job_scripts/25259: line 20: gnuplot2.pl: command not found
+/opt/sge6/default/spool/exec_spool_local/node002/job_scripts/25259: line 22: faa_stat.pl: command not found
+/opt/sge6/default/spool/exec_spool_local/node002/job_scripts/25259: line 25: gnuplot1.pl: command not found
+/opt/sge6/default/spool/exec_spool_local/node002/job_scripts/25259: line 25: gnuplot2.pl: command not found
+/opt/sge6/default/spool/exec_spool_local/node002/job_scripts/25259: line 29: faa_stat.pl: command not found
+/opt/sge6/default/spool/exec_spool_local/node002/job_scripts/25259: line 32: gnuplot1.pl: command not found
+/opt/sge6/default/spool/exec_spool_local/node002/job_scripts/25259: line 32: gnuplot2.pl: command not found

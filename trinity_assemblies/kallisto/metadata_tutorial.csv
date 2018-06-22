@@ -1,0 +1,11 @@
+﻿Provider,Sample.IDs,scientific_name,study_title,High.level.variety,High.level.tissue,High.level.age,High.level.stress.disease,Variety,Tissue,Age,Stress.disease,Intermediate
+M. Davey BCS,Sample_118A,Triticum aestivum,Development,Azhurnaya,spike,reproductive,none,Azhurnaya,spike,30% spike,none,spike
+M. Davey BCS,Sample_119B,Triticum aestivum,Development,Azhurnaya,spike,reproductive,none,Azhurnaya,spike,30% spike,none,spike
+M. Davey BCS,Sample_120A,Triticum aestivum,Development,Azhurnaya,spike,reproductive,none,Azhurnaya,spike,30% spike,none,spike
+Vijay Tiwari & Raju Datla,DF5,Triticum aestivum,CS_spike,Chinese Spring,spike,reproductive,none,Chinese Spring,spike,Ear emergence,none,spike
+Vijay Tiwari & Raju Datla,DF19,Triticum aestivum,CS_spike,Chinese Spring,spike,reproductive,none,Chinese Spring,spike,Ear emergence,none,spike
+M. Davey BCS,Sample_103A,Triticum aestivum,Development,Azhurnaya,roots,reproductive,none,Azhurnaya,roots,30% spike,none,roots
+M. Davey BCS,Sample_104B,Triticum aestivum,Development,Azhurnaya,roots,reproductive,none,Azhurnaya,roots,30% spike,none,roots
+M. Davey BCS,Sample_105B,Triticum aestivum,Development,Azhurnaya,roots,reproductive,none,Azhurnaya,roots,30% spike,none,roots
+SRA,spike_Z32_rep1,Triticum aestivum,choulet_URGI,Chinese Spring,spike,vegetative,none,Chinese Spring,spike,two nodes detectable,none,spike
+SRA,spike_Z32_rep2,Triticum aestivum,choulet_URGI,Chinese Spring,spike,vegetative,none,Chinese Spring,spike,two nodes detectable,none,spike

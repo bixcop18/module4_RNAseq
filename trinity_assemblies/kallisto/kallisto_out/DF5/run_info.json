@@ -1,0 +1,9 @@
+{
+	"n_targets": 3153,
+	"n_bootstraps": 0,
+	"n_processed": 2204896,
+	"kallisto_version": "0.43.0",
+	"index_version": 10,
+	"start_time": "Thu Jun 21 14:05:49 2018",
+	"call": "kallisto quant -i ../Trinity-mini-test-CDHit90.fasta.k31 -o kallisto_out/DF5 /Users/ramirezr/Dropbox/JIC/Workshops/2018-05 Beca/reads/DF5/DF5.r1.fastq.gz /Users/ramirezr/Dropbox/JIC/Workshops/2018-05 Beca/reads/DF5/DF5.r2.fastq.gz"
+}
